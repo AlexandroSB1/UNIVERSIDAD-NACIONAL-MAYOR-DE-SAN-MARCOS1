@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Único</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #3a78c2;
+      color: white;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .container {
+      background-color: white;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 400px;
+      width: 95%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .photo-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .photo-info img {
+      width: 100px;
+      height: 120px;
+      object-fit: cover;
+      border: 2px solid #773dd1;
+      border-radius: 10px;
+    }
+
+    .photo-info .info h2 {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+
+    .photo-info .info p {
+      color: gray;
+      margin: 0;
+    }
+
+    .field {
+      background-color: #f1edff;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+    }
+
+    .field strong {
+      display: block;
+      font-size: 0.85em;
+    }
+
+    .field span {
+      color: #6a47d1;
+      font-weight: bold;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 480px) {
+      .photo-info img {
+        width: 90px;
+        height: 110px;
+      }
+
+      .photo-info .info h2 {
+        font-size: 16px;
+      }
+
+      .field {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="menu-icon">&#9776;</div> <!-- Menú -->
+    <div class="right-section">
+      <span id="timer">15:00</span>
+      <a href="#">Salir</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="photo-info">
+      <img src="Foto.png" alt="Foto de estudiante">
+      <div class="info">
+        <h2>ROBLES QUISPE, NAYELI ALDANA</h2>
+        <p>Estudiante</p>
+      </div>
+    </div>
+    <div class="field">
+      <strong>Código</strong>
+      <span>22020451</span>
+    </div>
+    <div class="field">
+      <strong>Facultad</strong>
+      <span>2 - DERECHO Y CIENCIA POLÍTICA</span>
+    </div>
+    <div class="field">
+      <strong>Programa</strong>
+      <span>2 - E.P. de Derecho</span>
+    </div>
+    <div class="field">
+      <strong>Especialidad</strong>
+      <span>0 - Estudios Generales</span>
+    </div>
+    <div class="field">
+      <strong>Periodo Académico</strong>
+      <span>2025-0</span>
+    </div>
+  </div>
+
+  <script>
+    let totalSeconds = 15 * 60; // 15 minutos
+
+    function updateTimer() {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+      if (totalSeconds > 0) {
+        totalSeconds--;
+      }
+    }
+
+    setInterval(updateTimer, 1000);
+  </script>
+
+</body>
+</html>
